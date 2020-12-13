@@ -138,7 +138,9 @@ exports.config = {
         require: [
             './features/step-definitions/steps.js',
             './features/step-definitions/test.steps.js',
-            './features/step-definitions/choosingParkingLot.steps.js'
+            './features/step-definitions/choosingParkingLot.steps.js',
+            './features/step-definitions/leavingDateGreatThanEntryDate.steps.js',
+            './features/step-definitions/goToWebsite.steps.js',
         ],
         // <boolean> show full backtrace for errors
         backtrace: false,

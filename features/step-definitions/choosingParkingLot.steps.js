@@ -1,8 +1,4 @@
-const { Given, When, Then } = require('cucumber');
-
-Given('I go the website', async () => {
-    await browser.url('http://www.shino.de/parkcalc/');
-})
+const { When, Then } = require('cucumber');
 
 When('I select {string}', async (parking_lot) => {
     const elem = await $('#ParkingLot');
