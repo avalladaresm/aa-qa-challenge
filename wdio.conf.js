@@ -141,6 +141,7 @@ exports.config = {
             './features/step-definitions/choosingParkingLot.steps.js',
             './features/step-definitions/leavingDateGreatThanEntryDate.steps.js',
             './features/step-definitions/goToWebsite.steps.js',
+            './features/step-definitions/selectingOptions.steps.js',
         ],
         // <boolean> show full backtrace for errors
         backtrace: false,

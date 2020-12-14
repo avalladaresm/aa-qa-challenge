@@ -1,14 +1,4 @@
-const { When, Then } = require('cucumber');
-
-When('I select {string}', async (parking_lot) => {
-    const elem = await $('#ParkingLot');
-    await elem.selectByVisibleText(parking_lot);
-})
-
-When('I press the Calculate button', async () => {
-    const elem = await $('input[type="submit"]');
-    await elem.click();
-})
+const { Then } = require('cucumber');
 
 Then('I should see the error {string}', async (result) => {
     const elem = await $('form table tbody tr:nth-of-type(4) .SubHead b');
