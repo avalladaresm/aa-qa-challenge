@@ -7,7 +7,9 @@ Then('I should see the error {string}', async (result) => {
 
 Then('the leaving date and time should be after the entry date and time', async () => {
     const resultElem = await $('form table tbody tr:nth-of-type(4) .SubHead b');
-    
+    const resultElemTotalTimeElem = await $('form table tbody tr:nth-of-type(4) td:nth-of-type(2) .BodyCopy b');
+    const resultElemTotalTimeElemText = await resultElemTotalTimeElem.getText();
+
     const entryDateElem = await $('input[name="StartingDate"]');
     const entryDateInput = await entryDateElem.getValue();
     const entryTimeElem = await $('input[name="StartingTime"]');
@@ -21,8 +23,13 @@ Then('the leaving date and time should be after the entry date and time', async 
     const leavingDate = new Date(leavingDateInput + ' ' + leavingTimeInput);
 
     let resultText = '';
-    if (leavingDate < entryDate)
+    if(resultElemTotalTimeElemText.includes('-')){
+        resultText = '-'
+        await expect(resultElemTotalTimeElem).not.toHaveTextContaining(resultText);
+    }
+    else if (leavingDate < entryDate){
         resultText = 'ERROR! YOUR LEAVING DATE OR TIME IS BEFORE YOUR STARTING DATE OR TIME';
+        await expect(resultElem).not.toHaveTextContaining(resultText);
+    }
 
-    await expect(resultElem).not.toHaveTextContaining(resultText);
 })

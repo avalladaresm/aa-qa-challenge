@@ -19,7 +19,7 @@ When('I set an entry date and time', async () => {
   timeElem.setValue(entry.time);
 })
 
-const leaving = {date: '12/17/2020', time: '14:10'};
+const leaving = {date: '12/14/2020', time: '14:10'};
 
 When('I set a leaving date and time', async () => {
   const dateElem = await $('input[name="LeavingDate"]');
