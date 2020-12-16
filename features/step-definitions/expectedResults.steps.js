@@ -1,4 +1,5 @@
 const { Then } = require('cucumber');
+let assert = require('assert');
 
 Then('I should see the error {string}', async (result) => {
     const elem = await $('form table tbody tr:nth-of-type(4) .SubHead b');
@@ -36,4 +37,24 @@ Then('the leaving date and time should be after the entry date and time', async 
         }
     }
 
+})
+
+Then('I should see a warning saying the date or time format I entered is incorrect', async () => {
+    const entryDateElem = await $('input[name="StartingDate"]');
+    const entryDateInput = await entryDateElem.getValue();
+    const entryTimeElem = await $('input[name="StartingTime"]');
+    const entryTimeInput = await entryTimeElem.getValue();
+
+    const leavingDateElem = await $('input[name="LeavingDate"]');
+    const leavingDateInput = await leavingDateElem.getValue();
+    const leavingTimeElem = await $('input[name="LeavingTime"]');
+    const leavingTimeInput = await leavingTimeElem.getValue();
+
+    const dateRegex = RegExp(/^((0?[1-9]|1[0-2])(\/)(0?[1-9]|[12]\d|30|31)(\/)(20)([0-9])([0-9]))$/, 'g');
+    //const timeReges = RegExp(//, 'g');
+
+    assert.match(entryDateInput, dateRegex);
+    assert.match(leavingDateInput, dateRegex);
+    //assert.match(entryTimeInput, dateRegex);
+    //assert.match(leavingTimeInput, dateRegex);
 })
