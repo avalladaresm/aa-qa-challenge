@@ -51,10 +51,10 @@ Then('I should see a warning saying the date or time format I entered is incorre
     const leavingTimeInput = await leavingTimeElem.getValue();
 
     const dateRegex = RegExp(/^((0?[1-9]|1[0-2])(\/)(0?[1-9]|[12]\d|30|31)(\/)(20)([0-9])([0-9]))$/, 'g');
-    //const timeReges = RegExp(//, 'g');
+    const timeReges = RegExp(/^((([0-1])?([0-9])|20|21|22|23):([0-5])([0-9]))$/, 'g');
 
     assert.match(entryDateInput, dateRegex);
     assert.match(leavingDateInput, dateRegex);
-    //assert.match(entryTimeInput, dateRegex);
-    //assert.match(leavingTimeInput, dateRegex);
+    assert.match(entryTimeInput, timeReges);
+    assert.match(leavingTimeInput, timeReges);
 })
