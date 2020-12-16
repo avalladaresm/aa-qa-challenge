@@ -38,3 +38,17 @@ When('I set a leaving date {string}', async (leavingDate) => {
   dateElem.setValue(leavingDate);
   assert.match(leavingDate, dateRegex);
 })
+
+const timeRegex = RegExp(/^((([0-1])?([0-9])|20|21|22|23):([0-5])([0-9]))$/, 'g');
+
+When('I set an entry time {string}', async (entryTime) => {
+  const timeElem = await $('input[name="StartingTime"]');
+  timeElem.setValue(entryTime);
+  assert.match(entryTime, timeRegex);
+})
+
+When('I set a leaving time {string}', async (leavingTime) => {
+  const timeElem = await $('input[name="LeavingTime"]');
+  timeElem.setValue(leavingTime);
+  assert.match(leavingTime, timeRegex);
+})
