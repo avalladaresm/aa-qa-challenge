@@ -32,3 +32,9 @@ When('I set an entry date {string}', async (entryDate) => {
   dateElem.setValue(entryDate);
   assert.match(entryDate, dateRegex);
 })
+
+When('I set a leaving date {string}', async (leavingDate) => {
+  const dateElem = await $('input[name="LeavingDate"]');
+  dateElem.setValue(leavingDate);
+  assert.match(leavingDate, dateRegex);
+})
