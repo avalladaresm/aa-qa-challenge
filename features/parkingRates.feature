@@ -68,9 +68,12 @@ Feature: Calculating parking costs
 
     Examples:
       | parking_lot                 | entryDate    | entryTime | entryAMPM | leavingDate  | leavingTime | leavingAMPM | cost  |
-      | 'Long-Term Garage Parking'  | '12/15/2020' | '12:50'   | 'AM'      | '12/20/2020' | '06:00'     | 'PM'        | '72'  |
+      | 'Long-Term Garage Parking'  | '12/16/2020' | '06:00'   | 'PM'      | '12/16/2020' | '10:00'     | 'PM'        | '8'   |
+      | 'Long-Term Garage Parking'  | '12/16/2020' | '06:00'   | 'PM'      | '12/18/2020' | '04:00'     | 'AM'        | '24'  |
+      | 'Long-Term Garage Parking'  | '12/15/2020' | '01:50'   | 'PM'      | '12/20/2020' | '09:00'     | 'PM'        | '72'  |
+      | 'Long-Term Garage Parking'  | '12/15/2020' | '01:13'   | 'PM'      | '12/20/2020' | '09:01'     | 'AM'        | '60'  |
       | 'Long-Term Garage Parking'  | '04/28/2021' | '01:13'   | 'PM'      | '05/20/2021' | '09:01'     | 'AM'        | '228' |
-      | 'Long-Term Garage Parking'  | '07/08/2021' | '10:05'   | 'PM'      | '08/08/2021' | '02:54'     | 'AM'        | '322' |
+      | 'Long-Term Garage Parking'  | '07/08/2021' | '10:05'   | 'PM'      | '08/08/2021' | '01:54'     | 'AM'        | '320' |
       | 'Long-Term Garage Parking'  | '10/11/2021' | '05:00'   | 'PM'      | '10/16/2021' | '04:00'     | 'PM'        | '60'  |
 
   Scenario Outline: As a user, I want to see my total parking cost using Long-Term Surface Parking
