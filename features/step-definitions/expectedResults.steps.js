@@ -39,26 +39,6 @@ Then('the leaving date and time should be after the entry date and time', async 
 
 })
 
-Then('I should see a warning saying the date or time format I entered is incorrect', async () => {
-    const entryDateElem = await $('input[name="StartingDate"]');
-    const entryDateInput = await entryDateElem.getValue();
-    const entryTimeElem = await $('input[name="StartingTime"]');
-    const entryTimeInput = await entryTimeElem.getValue();
-
-    const leavingDateElem = await $('input[name="LeavingDate"]');
-    const leavingDateInput = await leavingDateElem.getValue();
-    const leavingTimeElem = await $('input[name="LeavingTime"]');
-    const leavingTimeInput = await leavingTimeElem.getValue();
-
-    const dateRegex = RegExp(/^((0?[1-9]|1[0-2])(\/)(0?[1-9]|[12]\d|30|31)(\/)(20)([0-9])([0-9]))$/, 'g');
-    const timeReges = RegExp(/^((([0-1])?([0-9])|20|21|22|23):([0-5])([0-9]))$/, 'g');
-
-    assert.match(entryDateInput, dateRegex);
-    assert.match(leavingDateInput, dateRegex);
-    assert.match(entryTimeInput, timeReges);
-    assert.match(leavingTimeInput, timeReges);
-})
-
 Then('I should see how much will the parking cost be $ {string}', async (cost) => {
     const costElem = await $('form table tbody tr:nth-of-type(4) .SubHead b');
     await expect(costElem).toHaveTextContaining(cost);
