@@ -10,7 +10,7 @@ Then('I should see the error {string}', async (result) => {
 
 /*  
 *   Feature(s) using the following steps:
-*   - leavingDateGreatThanEntryDate.feature
+*   - leavingDateGreaterThanEntryDate.feature
 */
 Then('the leaving date and time should be after the entry date and time', async () => {
     const resultElem = await $('form table tbody tr:nth-of-type(4) .SubHead b');
