@@ -11,6 +11,24 @@
     - If the time is entered as 12:00 through 12:59, with the AM radio button checked, the calculator interprets it as 00:00 through 00:59. But if the time is entered as 13:00 through 23:59, with the AM radio button checked, the calculator interprets it as 1:00 PM through 11:59 PM.
     - If a time is entered as 24-hour format, and the PM checkbox is checked, and then the calculate button is clicked, the result is shown and the value in the time input is now the entered value + 12:00. Example: Entry: 12/23/2021 2:00 PM, Leaving: 12/25/2021 3:05 AM => \<Calculate\> => Value in Entry time input box is 14:00 AM.
     - The input boxes accept letters at the end, in between and at the beginning and even calculates when the button is clicked. Though, the calculation is very off. Example: Entry: 12/23/2021 1a:b0 AM, Leaving: 12/23/2021 12:00 AM => $341,748.00 (18985 Days, 23 Hours, 0 Minutes).
+    - When choosing Enonomy Lot Parking, and
+      - the time is between 4 hours, 1 minute and 4 hours, 59 minutes, the parking cost is \$10.00 when it's supposed to be $9.00.
+      - the time is between 5 hours, 1 minute and 6 hours, 59 minutes, the parking cost is \$11.00 when it's supposed to be $9.00.
+    - The following scenario fails because of the previous point.
+        | parking_lot       | entryDate    | entryTime | entryAMPM | leavingDate  | leavingTime | leavingAMPM | cost  |
+        | ----------------- | ------------ | --------- | --------- | ------------ | ----------- | ----------- | ----  |
+        | 'Economy Parking' | '12/15/2020' | '01:50'   | 'PM'      | '12/20/2020' | '06:00'     | 'PM'        | '54'  |
+      -  (5 Days, 4 Hours, 10 Minutes) \$55 ❌ should be $54
+    
+        | parking_lot       | entryDate    | entryTime | entryAMPM | leavingDate  | leavingTime | leavingAMPM | cost  |
+        | ----------------- | ------------ | --------- | --------- | ------------ | ----------- | ----------- | ----  |
+        | 'Economy Parking' | '12/15/2020' | '01:50'   | 'PM'      | '12/20/2020' | '07:00'     | 'PM'        | '54'  |
+      -  (5 Days, 5 Hours, 10 Minutes) \$56 ❌ should be $54
+      
+        | parking_lot       | entryDate    | entryTime | entryAMPM | leavingDate  | leavingTime | leavingAMPM | cost  |
+        | ----------------- | ------------ | --------- | --------- | ------------ | ----------- | ----------- | ----  |
+        | 'Economy Parking' | '12/15/2020' | '01:50'   | 'PM'      | '12/20/2020' | '09:00'     | 'PM'        | '54'  |
+      -  (5 Days, 7 Hours, 10 Minutes) \$54 ✔️
 
 ---
 

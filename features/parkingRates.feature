@@ -37,7 +37,7 @@ Feature: Calculating parking costs
       | 'Short-Term Parking' | '04/28/2021' | '01:13'   | 'PM'      | '05/20/2021' | '09:01'     | 'AM'        | '528' |
       | 'Short-Term Parking' | '07/08/2021' | '10:05'   | 'PM'      | '08/08/2021' | '02:54'     | 'AM'        | '730' |
       | 'Short-Term Parking' | '10/11/2021' | '05:00'   | 'PM'      | '10/16/2021' | '04:00'     | 'PM'        | '120' |
-
+  
   Scenario Outline: As a user, I want to see my total parking cost using Economy Parking
     
     Given I go to the website
@@ -48,11 +48,14 @@ Feature: Calculating parking costs
     Then I should see how much will the parking cost be $ <cost>
 
     Examples:
-      | parking_lot                 | entryDate    | entryTime | entryAMPM | leavingDate  | leavingTime | leavingAMPM | cost  |
-      | 'Economy Parking'           | '12/15/2020' | '12:50'   | 'AM'      | '12/20/2020' | '06:00'     | 'PM'        | '54'  |
-      | 'Economy Parking'           | '04/28/2021' | '01:13'   | 'PM'      | '05/20/2021' | '09:01'     | 'AM'        | '171' |
-      | 'Economy Parking'           | '07/08/2021' | '10:05'   | 'PM'      | '08/08/2021' | '02:54'     | 'AM'        | '244' |
-      | 'Economy Parking'           | '10/11/2021' | '05:00'   | 'PM'      | '10/16/2021' | '04:00'     | 'PM'        | '45'  |
+      | parking_lot       | entryDate    | entryTime | entryAMPM | leavingDate  | leavingTime | leavingAMPM | cost  |
+      | 'Economy Parking' | '12/16/2020' | '06:00'   | 'PM'      | '12/16/2020' | '10:00'     | 'PM'        | '8'   |
+      | 'Economy Parking' | '12/16/2020' | '06:00'   | 'PM'      | '12/18/2020' | '04:00'     | 'AM'        | '18'  |
+      | 'Economy Parking' | '12/15/2020' | '01:50'   | 'PM'      | '12/20/2020' | '09:00'     | 'PM'        | '54'  |
+      | 'Economy Parking' | '12/15/2020' | '01:13'   | 'PM'      | '12/20/2020' | '09:01'     | 'AM'        | '45'  |
+      | 'Economy Parking' | '04/28/2021' | '01:13'   | 'PM'      | '05/20/2021' | '09:01'     | 'AM'        | '171' |
+      | 'Economy Parking' | '07/08/2021' | '10:05'   | 'PM'      | '08/08/2021' | '01:54'     | 'AM'        | '242' |
+      | 'Economy Parking' | '10/11/2021' | '05:00'   | 'PM'      | '10/16/2021' | '04:00'     | 'PM'        | '45'  |
 
   Scenario Outline: As a user, I want to see my total parking cost using Long-Term Garage Parking
     
