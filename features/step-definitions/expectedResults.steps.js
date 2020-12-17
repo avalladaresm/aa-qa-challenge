@@ -1,11 +1,17 @@
 const { Then } = require('cucumber');
-let assert = require('assert');
-
+/*  
+*   Feature(s) using the following steps:
+*   - choosingParkingLot.feature
+*/
 Then('I should see the error {string}', async (result) => {
     const elem = await $('form table tbody tr:nth-of-type(4) .SubHead b');
     await expect(elem).toHaveText(result);
 })
 
+/*  
+*   Feature(s) using the following steps:
+*   - leavingDateGreatThanEntryDate.feature
+*/
 Then('the leaving date and time should be after the entry date and time', async () => {
     const resultElem = await $('form table tbody tr:nth-of-type(4) .SubHead b');
     
@@ -39,6 +45,10 @@ Then('the leaving date and time should be after the entry date and time', async 
 
 })
 
+/*  
+*   Feature(s) using the following steps:
+*   - parkingRates.feature
+*/
 Then('I should see how much will the parking cost be $ {string}', async (cost) => {
     const costElem = await $('form table tbody tr:nth-of-type(4) .SubHead b');
     await expect(costElem).toHaveTextContaining(cost);

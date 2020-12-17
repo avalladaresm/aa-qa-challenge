@@ -1,6 +1,12 @@
 const { When } = require('cucumber')
 let assert = require('assert');
 
+/*  
+*   Feature(s) using the following steps:
+*   - choosingParkingLot.feature
+*   - leavingDatesGreatThanEntryDate.feature
+*   - parkingRates.feature
+*/
 When('I select {string}', async (parking_lot) => {
     const elem = await $('#ParkingLot');
     await elem.selectByVisibleText(parking_lot);
