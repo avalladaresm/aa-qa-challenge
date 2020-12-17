@@ -56,7 +56,7 @@ When('I set a leaving time {string}', async (leavingTime) => {
 When('I set an entry {string} and {string} {string}', async (entryDate, entryTime, entryAMPM) => {
   const dateElem = await $('input[name="StartingDate"]');
   const timeElem = await $('input[name="StartingTime"]');
-  const ampmElem = await $(`input[value=${entryAMPM}]`);
+  const ampmElem = await $(`form table tbody tr:nth-of-type(2) td:nth-of-type(2) input[value=${entryAMPM}]`);
   await ampmElem.click();
   dateElem.setValue(entryDate);
   timeElem.setValue(entryTime);
@@ -65,7 +65,7 @@ When('I set an entry {string} and {string} {string}', async (entryDate, entryTim
 When('I set a leaving {string} and {string} {string}', async (leavingDate, leavingTime, leavingAMPM) => {
   const dateElem = await $('input[name="LeavingDate"]');
   const timeElem = await $('input[name="LeavingTime"]');
-  const ampmElem = await $(`input[value=${leavingAMPM}]`);
+  const ampmElem = await $(`form table tbody tr:nth-of-type(3) td:nth-of-type(2) input[value=${leavingAMPM}]`);
   await ampmElem.click();
   dateElem.setValue(leavingDate);
   timeElem.setValue(leavingTime);
