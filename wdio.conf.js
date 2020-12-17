@@ -136,8 +136,6 @@ exports.config = {
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
         require: [
-            './features/step-definitions/steps.js',
-            './features/step-definitions/test.steps.js',
             './features/step-definitions/goToWebsite.steps.js',
             './features/step-definitions/selectingOptions.steps.js',
             './features/step-definitions/expectedResults.steps.js',
