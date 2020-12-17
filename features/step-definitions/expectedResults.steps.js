@@ -58,3 +58,8 @@ Then('I should see a warning saying the date or time format I entered is incorre
     assert.match(entryTimeInput, timeReges);
     assert.match(leavingTimeInput, timeReges);
 })
+
+Then('I should see how much will the parking cost be $ {string}', async (cost) => {
+    const costElem = await $('form table tbody tr:nth-of-type(4) .SubHead b');
+    await expect(costElem).toHaveTextContaining(cost);
+})

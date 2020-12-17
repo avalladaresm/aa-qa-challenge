@@ -10,11 +10,14 @@ Feature: Calculating parking costs
     Then I should see how much will the parking cost be $ <cost>
 
     Examples:
-      | parking_lot                 | entryDate    | entryTime | entryAMPM | leavingDate  | leavingTime | leavingAMPM | cost  | 
-      | 'Valet Parking'             | '12/15/2020' | '12:50'   | 'AM'      | '12/20/2020' | '06:00'     | 'PM'        | '108' |
-      | 'Valet Parking'             | '04/28/2021' | '01:13'   | 'PM'      | '05/20/2021' | '09:01'     | 'AM'        | '396' |
-      | 'Valet Parking'             | '07/08/2021' | '10:05'   | 'PM'      | '08/08/2021' | '02:54'     | 'AM'        | '558' |
-      | 'Valet Parking'             | '10/11/2021' | '05:00'   | 'PM'      | '10/16/2021' | '04:00'     | 'PM'        | '90'  |
+      | parking_lot     | entryDate    | entryTime | entryAMPM | leavingDate  | leavingTime | leavingAMPM | cost  |
+      | 'Valet Parking' | '12/16/2020' | '06:00'   | 'PM'      | '12/16/2020' | '10:00'     | 'PM'        | '12'  |
+      | 'Valet Parking' | '12/16/2020' | '18:00'   | 'AM'      | '12/18/2020' | '04:00'     | 'AM'        | '36'  |
+      | 'Valet Parking' | '12/15/2020' | '01:50'   | 'PM'      | '12/20/2020' | '06:00'     | 'PM'        | '108' |
+      | 'Valet Parking' | '12/15/2020' | '01:13'   | 'PM'      | '12/20/2020' | '09:01'     | 'AM'        | '90'  |
+      | 'Valet Parking' | '04/28/2021' | '01:13'   | 'PM'      | '05/20/2021' | '09:01'     | 'AM'        | '414' |
+      | 'Valet Parking' | '07/08/2021' | '10:05'   | 'PM'      | '08/08/2021' | '02:54'     | 'AM'        | '558' |
+      | 'Valet Parking' | '10/11/2021' | '05:00'   | 'PM'      | '10/16/2021' | '04:00'     | 'PM'        | '90'  |
 
   Scenario Outline: As a user, I want to see my total parking cost using Short-Term Parking
     
@@ -26,7 +29,7 @@ Feature: Calculating parking costs
     Then I should see how much will the parking cost be $ <cost>
 
     Examples:
-      | parking_lot                 | entryDate    | entryTime | entryAMPM | leavingDate  | leavingTime | leavingAMPM | cost  | 
+      | parking_lot                 | entryDate    | entryTime | entryAMPM | leavingDate  | leavingTime | leavingAMPM | cost  |
       | 'Short-Term Parking'        | '12/15/2020' | '12:50'   | 'AM'      | '12/20/2020' | '06:00'     | 'PM'        | '144' |
       | 'Short-Term Parking'        | '04/28/2021' | '01:13'   | 'PM'      | '05/20/2021' | '09:01'     | 'AM'        | '528' |
       | 'Short-Term Parking'        | '07/08/2021' | '10:05'   | 'PM'      | '08/08/2021' | '02:54'     | 'AM'        | '730' |
